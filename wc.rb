@@ -3,10 +3,7 @@
 require 'optparse'
 opt = OptionParser.new
 
-result = nil
-opt.on("-g", "--germany") {|v| result = 'WIN'}
-opt.on("-c", "--costarica") {|v| result = 'LOSE'}
+opt.on("-g", "--germany", "Show the winners and losers of the match between Japan and Germany") {puts 'WIN'}
+opt.on("-c", "--costarica", "Show the winners and losers of the match between Japan and Costa Rica") {puts 'LOSE'}
 
-opt.parse!(ARGV)
-
-puts result
+opt.parse(ARGV)
