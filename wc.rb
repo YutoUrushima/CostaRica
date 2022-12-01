@@ -10,15 +10,15 @@ class WorldCup2022
     @games = {}
     OptionParser.new do |opt|
       opt.on("-g", "--germany", "Show the winners and losers of the match between Japan and Germany") { |val| @games[:result] = WIN_MESSAGE }
-      opt.on("-c", "--costarica", "Show the winners and losers of the match between Japan and Costa Rica") { |val| @game[:result] = LOSE_MESSAGE }
+      opt.on("-c", "--costarica", "Show the winners and losers of the match between Japan and Costa Rica") { |val| @games[:result] = LOSE_MESSAGE }
       opt.parse(ARGV)
     rescue OptionParser::InvalidOption => error
-      self.message
+      puts self.message
     end
   end
 
   def message
-    puts MESSAGE
+    return MESSAGE
   end
 
   def specify?
@@ -26,9 +26,9 @@ class WorldCup2022
   end
 
   def get_the_result
-    puts @games[:result]
+    return @games[:result]
   end
 end
 
 worldcup2022 = WorldCup2022.new
-worldcup2022.get_the_result if worldcup2022.specify?
+puts worldcup2022.get_the_result if worldcup2022.specify?
