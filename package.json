@@ -1,0 +1,24 @@
+{
+  "name": "costarica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YutoUrushima/CostaRica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YutoUrushima/CostaRica/issues"
+  },
+  "homepage": "https://github.com/YutoUrushima/CostaRica#readme",
+  "dependencies": {
+    "@prettier/plugin-ruby": "^3.2.2",
+    "prettier": "^2.8.0"
+  }
+}
