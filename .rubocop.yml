@@ -1,0 +1,25 @@
+AllCops:
+  Exclude:
+    - "Gemfile"
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - "Gemfile"
+Metrics/PerceivedComplexity:
+  Max: 8
+Metrics/MethodLength:
+  Max: 30
+Metrics/BlockNesting:
+  Max: 5
+Metrics/ClassLength:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
