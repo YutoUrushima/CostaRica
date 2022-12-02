@@ -20,6 +20,11 @@ class WorldCup2022
         "--costarica",
         "Show the winners and losers of the match between Japan and Costa Rica"
       ) { |val| @result = LOSE_MESSAGE }
+      opt.on(
+        "-s",
+        "--spain",
+        "Show the winners and losers of the match between Japan and Spain"
+      ) { |val| @result = WIN_MESSAGE }
       raise "Input correctly" unless self.is_valid?
       opt.parse(ARGV)
     rescue OptionParser::InvalidOption => error
