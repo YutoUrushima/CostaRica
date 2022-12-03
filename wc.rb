@@ -1,30 +1,28 @@
 #!/usr/bin/env ruby
 require "optparse"
-
-MESSAGE =
-  "I don't know any countries like that, so the world is bigger than I thought."
-WIN_MESSAGE = "Japan win!"
-LOSE_MESSAGE = "Japan lose..."
+require "json"
 
 class WorldCup2022
   def initialize
     @result = nil
+    @constants = {}
+    self.load_constants
     OptionParser.new do |opt|
       opt.on(
         "-g",
         "--germany",
         "Show the winners and losers of the match between Japan and Germany"
-      ) { |val| @result = WIN_MESSAGE }
+      ) { |val| @result = @constants[:constants][:win] }
       opt.on(
         "-c",
         "--costarica",
         "Show the winners and losers of the match between Japan and Costa Rica"
-      ) { |val| @result = LOSE_MESSAGE }
+      ) { |val| @result = @constants[:constants][:lose] }
       opt.on(
         "-s",
         "--spain",
         "Show the winners and losers of the match between Japan and Spain"
-      ) { |val| @result = WIN_MESSAGE }
+      ) { |val| @result = @constants[:constants][:win] }
       raise "Input correctly" unless self.is_valid?
       opt.parse(ARGV)
     rescue OptionParser::InvalidOption => error
@@ -43,12 +41,19 @@ class WorldCup2022
   end
 
   def is_valid?
-    return false if ARGV.size >= 2
+    return false if ARGV.size == 0 || ARGV.size >= 2
     option_word = ARGV[0]
     if "-" == option_word[0] && "-" != option_word[1]
       return option_word.size <= 2
     end
     return true
+  end
+
+  def load_constants
+    File.open("setting.json") do |f|
+      @constants =
+        JSON.load(f, nil, symbolize_names: true, create_additions: false)
+    end
   end
 end
 
