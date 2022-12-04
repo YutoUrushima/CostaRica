@@ -23,10 +23,10 @@ class WorldCup2022
         "--spain",
         "Show the winners and losers of the match between Japan and Spain"
       ) { |val| @result = @constants[:constants][:win] }
-      raise "Input correctly" unless self.is_valid?
+      raise @constants[:constants][:error] unless self.is_valid?
       opt.parse(ARGV)
     rescue OptionParser::InvalidOption => error
-      puts MESSAGE
+      puts @constants[:constants][:message]
     rescue => error
       puts error
     end
