@@ -1,3 +1,4 @@
+#!/bin/sh
 # Exec `./exec_setup.sh` at CostaRica Directory
 
 # Delete wc If the file exist.
