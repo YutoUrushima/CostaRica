@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# Run the Ruby file as it is: "ruby wc.rb -g"
 require "optparse"
 require "json"
 
